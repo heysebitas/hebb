@@ -1,21 +1,21 @@
-# Sistema de Semaforo Inteligente - Red Hebbiana Multicapa
+# 🚦 Sistema de Semáforo Inteligente - Red Hebbiana Multicapa
 
-## Descripcion del Proyecto
+## Descripción del Proyecto
 
-Sistema de control de trafico inteligente que utiliza una **Red Neuronal Hebbiana Multicapa** para aprender y decidir que semaforo activar en una interseccion de 4 direcciones segun el flujo de trafico.
+Sistema de control de tráfico inteligente que utiliza una **Red Neuronal Hebbiana Multicapa** para aprender y decidir qué semáforo activar en una intersección de 4 direcciones según el flujo de tráfico.
 
 ---
 
 ## Problema a Resolver
 
-**Objetivo**: Aprender a dar prioridad en una interseccion segun la cantidad de carros esperando en cada direccion (Norte, Sur, Este, Oeste).
+**Objetivo**: Aprender a dar prioridad en una intersección según la cantidad de carros esperando en cada dirección (Norte, Sur, Este, Oeste).
 
-**Aplicacion real**: Optimizar el flujo vehicular reduciendo tiempos de espera.
+**Aplicación real**: Optimizar el flujo vehicular reduciendo tiempos de espera.
 
 
-### Parametros:
-- **Entradas**: 4 (trafico en cada direccion: 0-20 carros)
-- **Capa oculta**: 6 neuronas con activacion `tanh`
+### Parámetros:
+- **Entradas**: 4 (tráfico en cada dirección: 0-20 carros)
+- **Capa oculta**: 6 neuronas con activación `tanh`
 - **Salidas**: 6 decisiones posibles
 - **Algoritmo**: Aprendizaje Hebbiano (`W += y * x`)
 
@@ -23,58 +23,58 @@ Sistema de control de trafico inteligente que utiliza una **Red Neuronal Hebbian
 
 ## Datos de Entrenamiento
 
-Se generan **50 escenarios sinteticos** que simulan diferentes situaciones de trafico:
+Se generan **50 escenarios sintéticos** que simulan diferentes situaciones de tráfico:
 
-1. **Trafico pesado Norte-Sur** (10 ejemplos)
+1. **Tráfico pesado Norte-Sur** (10 ejemplos)
    - Norte: 12-20 carros, Sur: 12-20 carros
    - Este: 0-5 carros, Oeste: 0-5 carros
-   - **Decision**: Verde Norte-Sur
+   - **Decisión**: Verde Norte-Sur
 
-2. **Trafico pesado Este-Oeste** (10 ejemplos)
+2. **Tráfico pesado Este-Oeste** (10 ejemplos)
    - Este: 12-20 carros, Oeste: 12-20 carros
    - Norte: 0-5 carros, Sur: 0-5 carros
-   - **Decision**: Verde Este-Oeste
+   - **Decisión**: Verde Este-Oeste
 
-3. **Solo trafico en Norte** (7 ejemplos)
+3. **Solo tráfico en Norte** (7 ejemplos)
    - Norte: 15-20 carros
    - Otros: 0-3 carros
-   - **Decision**: Verde Solo Norte
+   - **Decisión**: Verde Solo Norte
 
-4. **Solo trafico en Sur** (7 ejemplos)
+4. **Solo tráfico en Sur** (7 ejemplos)
    - Sur: 15-20 carros
    - Otros: 0-3 carros
-   - **Decision**: Verde Solo Sur
+   - **Decisión**: Verde Solo Sur
 
-5. **Solo trafico en Este** (8 ejemplos)
+5. **Solo tráfico en Este** (8 ejemplos)
    - Este: 15-20 carros
    - Otros: 0-3 carros
-   - **Decision**: Verde Solo Este
+   - **Decisión**: Verde Solo Este
 
-6. **Solo trafico en Oeste** (8 ejemplos)
+6. **Solo tráfico en Oeste** (8 ejemplos)
    - Oeste: 15-20 carros
    - Otros: 0-3 carros
-   - **Decision**: Verde Solo Oeste
+   - **Decisión**: Verde Solo Oeste
 
 ---
 
-## Visualizacion
+## Visualización
 
-El programa muestra **2 graficas simultaneas**:
+El programa muestra **2 gráficas simultáneas**:
 
 ### 1. Red Neuronal Animada
-- **Nodos azules**: Entradas (sensores de trafico)
+- **Nodos azules**: Entradas (sensores de tráfico)
 - **Nodos verdes**: Capa oculta
 - **Nodos rojos**: Salidas (decisiones)
-- **Conexiones**: Cambian de grosor y color segun los pesos
+- **Conexiones**: Cambian de grosor y color según los pesos
   - Rojo/Naranja: Pesos positivos
   - Azul/Morado: Pesos negativos
   - Grosor: Magnitud del peso
 
-### 2. Interseccion de Trafico
-- Vista superior de la interseccion
-- **Semaforos**: Cambian de rojo a verde segun la decision
-- **Contadores**: Muestran numero de carros en cada direccion
-- **Decision actual**: Texto indicando que semaforo esta activo
+### 2. Intersección de Tráfico
+- Vista superior de la intersección
+- **Semáforos**: Cambian de rojo a verde según la decisión
+- **Contadores**: Muestran número de carros en cada dirección
+- **Decisión actual**: Texto indicando qué semáforo está activo
 
 ---
 
@@ -91,51 +91,51 @@ python semaforoHebb.py
 ```
 
 ### Funcionamiento:
-1. **Generacion de datos**: Crea 50 escenarios de trafico
-2. **Animacion de entrenamiento**: Muestra como la red aprende paso a paso (2 ventanas)
-3. **Evaluacion**: Calcula la precision en los datos de entrenamiento
-4. **Prueba interactiva**: Permite ingresar trafico personalizado
+1. **Generación de datos**: Crea 50 escenarios de tráfico
+2. **Animación de entrenamiento**: Muestra cómo la red aprende paso a paso (2 ventanas)
+3. **Evaluación**: Calcula la precisión en los datos de entrenamiento
+4. **Prueba interactiva**: Permite ingresar tráfico personalizado
 
 ---
 
 ## Resultados Esperados
 
-- **Precision**: 95-100% en datos de entrenamiento
-- **Aprendizaje**: Los pesos evolucionan para asociar patrones de trafico con decisiones optimas
-- **Generalizacion**: La red aprende reglas como:
-  - "Mucho trafico N-S + poco E-O -> Verde N-S"
-  - "Solo trafico en una direccion -> Verde solo esa"
+- **Precisión**: 95-100% en datos de entrenamiento
+- **Aprendizaje**: Los pesos evolucionan para asociar patrones de tráfico con decisiones óptimas
+- **Generalización**: La red aprende reglas como:
+  - "Mucho tráfico N-S + poco E-O -> Verde N-S"
+  - "Solo tráfico en una dirección -> Verde solo esa"
 
 ---
 
-## Analisis del Aprendizaje
+## Análisis del Aprendizaje
 
-### Que aprendio la red?
+### ¿Qué aprendió la red?
 
 La red aprende **asociaciones Hebbianas** entre:
-- **Entrada**: Patrones de trafico (carros en cada direccion)
-- **Salida**: Decision optima de semaforo
+- **Entrada**: Patrones de tráfico (carros en cada dirección)
+- **Salida**: Decisión óptima de semáforo
 
-### Evolucion de los pesos:
+### Evolución de los pesos:
 
 1. **Inicialmente**: Pesos aleatorios pequeños (~0.1)
 2. **Durante entrenamiento**: 
-   - Aumentan las conexiones relevantes (como: mucho trafico Norte -> activar verde N o N-S)
+   - Aumentan las conexiones relevantes (como: mucho tráfico Norte -> activar verde N o N-S)
    - Se mantienen bajas las conexiones irrelevantes
-3. **Al final**: Pesos reflejan la "logica" del control de trafico
+3. **Al final**: Pesos reflejan la "lógica" del control de tráfico
 
 ### Activaciones de salida:
 
-Las activaciones son valores entre -1 y +1 que indican la "confianza" de cada decision:
-- **Valores positivos**: La red sugiere esa opcion
-- **Valores negativos**: La red descarta esa opcion
-- **Valor maximo**: Decision final elegida
+Las activaciones son valores entre -1 y +1 que indican la "confianza" de cada decisión:
+- **Valores positivos**: La red sugiere esa opción
+- **Valores negativos**: La red descarta esa opción
+- **Valor máximo**: Decisión final elegida
 
 Ejemplo:
 ```
 Verde N-S:     0.107  <- Positivo pero bajo
 Verde E-O:    -0.393  <- Negativo (descartado)
-Verde Solo N:  0.271  <- MAXIMO (ELEGIDO)
+Verde Solo N:  0.271  <- MÁXIMO (ELEGIDO)
 Verde Solo S: -0.050  <- Negativo
 Verde Solo E: -0.071  <- Negativo
 Verde Solo O: -0.120  <- Negativo
@@ -144,7 +144,7 @@ Verde Solo O: -0.120  <- Negativo
 ### Limitaciones:
 
 - Aprendizaje supervisado simple: No optimiza globalmente
-- Sensible al orden: El orden de presentacion afecta el resultado
+- Sensible al órden: El órden de presentación afecta el resultado
 - No olvida nada (re paila): Los pesos solo crecen (no decrece)
 - Overfitting: Se ajusta exactamente a los datos de entrenamiento
 
@@ -163,7 +163,7 @@ Verde Solo O: -0.120  <- Negativo
 ### Regla de Hebb:
 > "Lo que se dispara junto, se conecta junto"
 
-**Matematicamente**:
+**Matemáticamente**:
 ```
 W_nueva = W_antigua + eta * (salida_deseada * entrada)
 ```
@@ -174,8 +174,8 @@ Donde:
 
 ### Red Multicapa:
 - **Capa oculta**: Permite aprender representaciones no lineales
-- **Funcion tanh**: Introduce no linealidad (valores entre -1 y 1)
-- **Propagacion hacia adelante**: `h = tanh(W1 @ x)`, `y = W2 @ h`
+- **Función tanh**: Introduce no linealidad (valores entre -1 y 1)
+- **Propagación hacia adelante**: `h = tanh(W1 @ x)`, `y = W2 @ h`
 
 ---
 
