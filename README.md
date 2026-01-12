@@ -181,7 +181,7 @@ Donde:
 
 ## Para
 
-Taller de Redes Hebbianas - Cibernética y Sistemas Inteligentes - Universidad Sergio Arboleda
+Taller de Redes Hebbianas - Cibernética y Sistemas Inteligentes
 
 ## Licencia
 
